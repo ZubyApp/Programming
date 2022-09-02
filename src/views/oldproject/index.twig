@@ -1,0 +1,92 @@
+{% extends 'layout.twig' %}
+
+{% block title %}
+    Decendants
+{% endblock %}
+
+{% block content %}
+<style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        table tr th, table tr td {
+            border: 1px #eee solid;
+            padding: 5px;
+        }
+</style>
+
+<h1 style="font-size: 2rem" >CHRONOLOGICAL LIST OF DESCENDANTS</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Spouse's Name</th>
+            <th>Father's Name</th>
+            <th>Father's Name</th>
+            <th>Mother's Name</th>
+            <th>Mother's Name</th>
+            <th>Place of Birth</th>
+            <th>Date of Birth</th>
+            <th>Sex</th>
+            <th>Marital Status</th>
+            <th>Status</th>
+            <th>Position</th>
+            <th>City</th>
+            <th></th>
+            <th></th>
+        </tr>
+    <thead>
+    <tbody>
+        {% for desc in descs %}
+            <tr>
+                <td></td>
+                <td>{{ desc.firstName }}</td>
+                <td>{{ desc.middleName }}</td>
+                <td>{{ desc.lastName }}</td>
+                <td>{{ desc.spousesName }}</td>
+                <td>{{ desc.fathersFirstName }}</td>
+                <td>{{ desc.fathersLastName }}</td>
+                <td>{{ desc.mothersFirstName }}</td>
+                <td>{{ desc.mothersLastName }}</td>
+                <td>{{ desc.placeOfBirth }}</td>
+                <td>{{ desc.dateOfBirth }}</td>
+                <td>{{ desc.sex }}</td>
+                <td>{{ desc.maritalStatus }}</td>
+                <td>{{ desc.personalStatus }}</td>
+                <td>{{ desc.positionOfBirth }}</td>
+                <td>{{ desc.currentCity }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+            {% for spouse in spouses %}
+                <td></td>
+                <td>{{ spouse.firstName }}</td>
+                <td>{{ spouse.middleName }}</td>
+                <td>{{ spouse.lastName }}</td>
+                <td>{{ spouse.spousesName }}</td>
+                <td>{{ spouse.fathersFirstName }}</td>
+                <td>{{ spouse.fathersLastName }}</td>
+                <td>{{ spouse.mothersFirstName }}</td>
+                <td>{{ spouse.mothersLastName }}</td>
+                <td>{{ spouse.placeOfBirth }}</td>
+                <td>{{ spouse.dateOfBirth }}</td>
+                <td>{{ spouse.sex }}</td>
+                <td>{{ spouse.maritalStatus }}</td>
+                <td>{{ spouse.personalStatus }}</td>
+                <td>{{ spouse.positionOfBirth }}</td>
+                <td>{{ spouse.currentCity }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">No Decendants Found</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
